@@ -21,7 +21,7 @@ export default function Home(){
 
     const apiUrl = "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json";
     useEffect(() => {
-        axios.get(apiUrl).then((response) => setEmployeeData(response.data)).catch((error) => console.log(error)); 
+        axios.get(apiUrl).then((response) => setEmployeeData(response.data)).catch((error) => alert("failed to fetch data")); 
     }, []);
 
     const handleNext = () => {
@@ -59,11 +59,11 @@ export default function Home(){
                 </tbody>
             </table>
             <div className="pagination">
-                <button className="button" onClick={handlePrevious} disabled={currentPage === 1}>
+                <button className="button" onClick={handlePrevious}>
                     Previous
                 </button>
                 <div className="pageNumber">{currentPage}</div>
-                <button className="button" onClick={handleNext} disabled={currentPage === pageNumbers.length}>
+                <button className="button" onClick={handleNext}>
                     Next
                 </button>
             </div>
